@@ -1,12 +1,22 @@
-import React, { Component } from 'react';
-import {Button} from "antd-mobile";
+import React, { Component,Fragment } from 'react';
+import Login from './pages/login'
+import store from './store'
+import {Provider} from "react-redux";
+import {BrowserRouter,Route} from "react-router-dom";
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-          <Button type='primary'>test</Button>
-      </div>
+      <Fragment>
+          <Provider store={store}>
+              <BrowserRouter>
+                <div>
+                    <Route path='/login' exact component={Login}/>
+                </div>
+              </BrowserRouter>
+          </Provider>
+      </Fragment>
     );
   }
 }

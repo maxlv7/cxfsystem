@@ -1,0 +1,8 @@
+{
+  "msg": "success",
+  "data": {
+    "token":"auth_token",
+    "uid":1
+  },
+  "status": 200
+}
