@@ -2,6 +2,7 @@ import React, { Component,Fragment } from 'react';
 import {List,InputItem,Button,WingBlank,WhiteSpace,Toast} from "antd-mobile";
 import icon from '../../static/icon.png'
 import './index.css'
+import {Redirect} from "react-router-dom";
 
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
@@ -16,10 +17,10 @@ class Login extends Component {
         };
 
     }
-
-    render() {
+   render() {
         return (
          <Fragment>
+             {this.props.login?<Redirect to='/'/>:null}
           <div className='login-icon'>
             <img src={icon} alt=""/>
           </div>
@@ -69,7 +70,8 @@ class Login extends Component {
 const mapState= (state)=>{
   return {
       login:state.getIn(['Login','login']),
-      loading:state.getIn(['Login','loading'])
+      loading:state.getIn(['Login','loading']),
+      redirectTo:state.getIn(['Login','redirectTo'])
   }
 };
 

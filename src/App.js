@@ -1,9 +1,10 @@
 import React, { Component,Fragment } from 'react';
 import Login from './pages/login'
+import Home from './pages/home'
 import store from './store'
 import {Provider} from "react-redux";
-import {BrowserRouter,Route} from "react-router-dom";
-
+import {BrowserRouter,Route,Switch} from "react-router-dom";
+import AuthRoute from './utils/authrouter'
 
 class App extends Component {
   render() {
@@ -12,7 +13,11 @@ class App extends Component {
           <Provider store={store}>
               <BrowserRouter>
                 <div>
-                    <Route path='/login' exact component={Login}/>
+                    <AuthRoute/>
+                    <Switch>
+                        <Route path='/login' exact component={Login}/>
+                        <Route path='/' exact strict component={Home}/>
+                    </Switch>
                 </div>
               </BrowserRouter>
           </Provider>

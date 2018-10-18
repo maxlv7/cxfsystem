@@ -1,9 +1,14 @@
 import {fromJS} from "immutable";
 import * as constants from './constants'
 
+function judgeLogin(){
+
+}
+
 const defaultState = fromJS({
     login:false,
-    loading:false
+    loading:false,
+    redirectTo:''
 });
 
 export default (state=defaultState,action)=>{
@@ -17,6 +22,9 @@ export default (state=defaultState,action)=>{
         return state.merge({
             login:action.data
         })
+    }
+    if(action.type === constants.FORCE_LOGIN){
+        return state.set('login',true)
     }
     return state
 }

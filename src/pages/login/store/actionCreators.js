@@ -12,6 +12,10 @@ export const unloading = ()=>({
   type: constants.LOGIN_UNLOADING,
 });
 
+export const forceLogin = ()=>({
+   type: constants.FORCE_LOGIN
+});
+
 const changeLogin = (value)=>({
    type: constants.LOGIN_CHANGE_LOGIN,
    data:value

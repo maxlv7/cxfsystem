@@ -1,0 +1,1 @@
+export const GET_STU_LIST  = 'home/getStuList';
