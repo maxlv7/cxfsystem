@@ -21,9 +21,11 @@ const changeLogin = (value)=>({
    data:value
 });
 
-const setAuth = (token,uid)=>{
+const setAuth = (token,uid,username,group)=>{
     localStorage.setItem('access_token',token);
     localStorage.setItem('uid',uid);
+    localStorage.setItem('username',username);
+    localStorage.setItem('group',group);
 };
 
 export const login = (user,password)=>{
@@ -38,9 +40,10 @@ export const login = (user,password)=>{
                 console.log(data);
                 if(data.status === 200)
                 {
+                    const {token,uid,username,group} =data.data;
                     dispatch(changeLogin(true));
                     dispatch(unloading());
-                    setAuth(data.data.token,data.data.uid);
+                    setAuth(token,uid,username,group);
                     Toast.success(data.msg)
                 }
                 else{
