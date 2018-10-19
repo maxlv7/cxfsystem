@@ -28,20 +28,24 @@ const setAuth = (token,uid)=>{
 
 export const login = (user,password)=>{
   return (dispatch)=>{
-     // axios.get('/api/login.json?user='+user+'&password='+password)
-     axios.get('https://www.easy-mock.com/mock/5ba36de3a1924362236a3e68/test')
+      const postJson = {
+          'username':user,
+          'password':password
+      };
+     axios.post('http://localhost:5000/api/auth/login',(postJson))
             .then((res)=>{
                 const data = res.data;
                 console.log(data);
-                if(data.msg === 'success')
+                if(data.status === 200)
                 {
                     dispatch(changeLogin(true));
                     dispatch(unloading());
                     setAuth(data.data.token,data.data.uid);
-                    Toast.success("登录成功!")
+                    Toast.success(data.msg)
                 }
                 else{
-                    Toast.fail('用户名或密码出错!')
+                    Toast.fail(data.msg);
+                    dispatch(unloading());
                 }
             })
             .catch(()=>{

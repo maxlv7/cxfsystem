@@ -6,7 +6,7 @@ import {actionCreators} from '../pages/login/store'
 
 class AuthRoute extends React.Component{
 	componentDidMount() {
-	    console.log("我被执行了~~");
+
 	    if(localStorage.getItem('access_token'))
         {
             this.props.dispatch(actionCreators.forceLogin());
