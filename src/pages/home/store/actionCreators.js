@@ -2,7 +2,7 @@ import * as constants from './constants'
 import {fromJS} from "immutable";
 
 import axios from 'axios'
-import {baseURl} from "../../../utils/config";
+import {baseURl,setHeaders} from "../../../utils/config";
 
 
 const getStuList = (data)=>({
@@ -13,7 +13,7 @@ const getStuList = (data)=>({
 
 export const getListData = ()=>{
     return (dispatch)=>{
-        axios.get(baseURl+'/admin/getStuList')
+        axios.get(baseURl+'/admin/getStuList',setHeaders())
             .then((res)=>{
                 const data = res.data.data.stuList;
                 //这里的data要为immutable对象

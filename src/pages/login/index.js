@@ -20,7 +20,7 @@ class Login extends Component {
    render() {
         return (
          <Fragment>
-             {this.props.login?<Redirect to='/'/>:null}
+             {this.props.login?<Redirect to='/index'/>:null}
           <div className='login-icon'>
             <img src={icon} alt=""/>
           </div>

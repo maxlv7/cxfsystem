@@ -16,7 +16,7 @@ export const forceLogin = ()=>({
    type: constants.FORCE_LOGIN
 });
 
-const changeLogin = (value)=>({
+export const changeLogin = (value)=>({
    type: constants.LOGIN_CHANGE_LOGIN,
    data:value
 });
@@ -41,9 +41,9 @@ export const login = (user,password)=>{
                 if(data.status === 200)
                 {
                     const {token,uid,username,group} =data.data;
+                    setAuth(token,uid,username,group);
                     dispatch(changeLogin(true));
                     dispatch(unloading());
-                    setAuth(token,uid,username,group);
                     Toast.success(data.msg)
                 }
                 else{

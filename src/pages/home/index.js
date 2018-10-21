@@ -1,9 +1,12 @@
 import React,{Component,Fragment} from 'react';
 import {TabBar} from "antd-mobile";
 import DataShow from './components/DataShow'
+import Settings from './settings'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
 import './home.css'
+import {Switch,Route,BrowserRouter} from "react-router-dom";
+
 
 class Home extends Component{
     constructor(props) {
@@ -16,11 +19,19 @@ class Home extends Component{
     }
 
     handleOnPress(pageName){
-        this.setState(()=>({selectedTab:pageName}))
+        this.setState(()=>({selectedTab:pageName}));
+        if(pageName==='index')
+        {
+             this.props.history.push('/index')
+        }
+        else{
+            this.props.history.push('/settings')
+        }
+
     }
 
     renderIcon(type){
-        return (<div className={'iconfont home-fs21px'+' icon-'+type}/>)
+        return (<div className={'iconfont fs-21px'+' icon-'+type}/>)
     }
     render() {
         return (
@@ -39,7 +50,9 @@ class Home extends Component{
                     selectedIcon={this.renderIcon('index')}
                     onPress={()=>this.handleOnPress('index')}
                     >
-                       <DataShow/>
+                        <Switch>
+                            <Route exact path='/index' component={DataShow}/>
+                        </Switch>
                     </TabBar.Item>
                 <TabBar.Item
                     title='管理'
@@ -48,7 +61,9 @@ class Home extends Component{
                     onPress={()=>this.handleOnPress('settings')}
                     selected={this.state.selectedTab==='settings'}
                     >
-                    我是第二个页面
+                    <Switch>
+                        <Route path='/settings' component={Settings}/>
+                    </Switch>
                 </TabBar.Item>
 
                </TabBar>

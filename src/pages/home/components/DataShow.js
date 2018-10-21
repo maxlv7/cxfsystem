@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import {List} from "antd-mobile";
-import * as actionCreators from "../store/actionCreators";
 import connect from "react-redux/es/connect/connect";
 
 
