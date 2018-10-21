@@ -1,7 +1,7 @@
 import * as constants from './constants'
 import {Toast} from 'antd-mobile'
 import axios from 'axios'
-
+import {baseURl} from "../../../utils/config";
 
 
 export const loading = ()=>({
@@ -34,7 +34,7 @@ export const login = (user,password)=>{
           'username':user,
           'password':password
       };
-     axios.post('http://localhost:5000/api/auth/login',(postJson))
+     axios.post(baseURl+'/auth/login',(postJson))
             .then((res)=>{
                 const data = res.data;
                 console.log(data);
