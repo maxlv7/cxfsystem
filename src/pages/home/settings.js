@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import {Button,WhiteSpace,List,WingBlank,Modal} from "antd-mobile";
-import {Switch,Route,BrowserRouter} from "react-router-dom";
 import {connect} from 'react-redux'
 import {actionCreators} from "../login/store";
 
@@ -10,6 +9,7 @@ class Settings extends Component{
         super(props);
         this.handleOnClick = this.handleOnClick.bind(this);
         this.handleOnOk = this.handleOnOk.bind(this);
+        this.manageMember = this.manageMember.bind(this);
     }
 
     render() {
@@ -53,7 +53,7 @@ class Settings extends Component{
         this.props.history.push('/login');
     }
     manageMember(){
-        alert('1')
+       this.props.history.push('/manageUsers');
     }
 }
 

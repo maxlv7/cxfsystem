@@ -11,6 +11,21 @@ const getStuList = (data)=>({
 });
 
 
+const getUser = (uid,username,point)=>({
+    type:constants.GET_USER_INFO,
+    data: [uid,username,point]
+});
+export const getUserInfo = (id)=>{
+  return (dispatch)=>{
+        axios.get(baseURl+'/admin/getUserInfo?id='+id)
+            .then((res)=>{
+                const user = res.data.data;
+                dispatch(getUser(user.id,user.username,user.point))
+            })
+            .catch()
+  }
+};
+
 export const getListData = ()=>{
     return (dispatch)=>{
         axios.get(baseURl+'/admin/getStuList',setHeaders())

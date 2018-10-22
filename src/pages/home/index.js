@@ -1,6 +1,8 @@
 import React,{Component,Fragment} from 'react';
 import {TabBar} from "antd-mobile";
 import DataShow from './components/DataShow'
+import Users from './components/Users'
+import UserInfo from './components/UserInfo'
 import Settings from './settings'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
@@ -63,6 +65,8 @@ class Home extends Component{
                     >
                     <Switch>
                         <Route path='/settings' component={Settings}/>
+                        <Route exact path='/manageUsers' component={Users}/>
+                        <Route path='/manage/user/:id' component={UserInfo}/>
                     </Switch>
                 </TabBar.Item>
 
