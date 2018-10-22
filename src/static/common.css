@@ -1,0 +1,12 @@
+. {
+    border-right: 1px solid;
+}
+
+body{
+    background-color: #fff;
+}
+
+.test{
+    text-align: center;
+    margin-top: 120px;
+}
