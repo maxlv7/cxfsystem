@@ -21,5 +21,8 @@ export default (state=defaultState,action)=>{
             now_score:action.data[2]
         })
     }
+    if(action.type === constants.GET_USER_ACTION){
+        return state.set('action_list',action.data)
+    }
     return state
 }

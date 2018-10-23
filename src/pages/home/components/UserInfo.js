@@ -3,13 +3,12 @@ import {Card, Icon, List, NavBar} from "antd-mobile";
 import {connect} from 'react-redux'
 import {actionCreators} from "../store";
 
-
 class UserInfo extends Component{
     constructor(props) {
         super(props);
         this.getUid = this.getUid.bind(this);
         this.handleOnLeftClick = this.handleOnLeftClick.bind(this);
-
+        this.renderActionList = this.renderActionList.bind(this);
     }
 
     getUid(){
@@ -23,9 +22,16 @@ class UserInfo extends Component{
     componentDidMount(){
     //加载用户信息，写入store
         this.props.dispatch(actionCreators.getUserInfo(this.getUid()));
-        console.log(this)
     //加载action信息，写入store
+        this.props.dispatch(actionCreators.getUserAction(this.getUid()))
     }
+
+    renderActionList(list){
+        console.log(list);
+      return list.map((item)=>{
+                return <List.Item key={item.get('mid')}>{item.get('action')}</List.Item>
+            })
+}
     render() {
         return (
             <div>
@@ -48,10 +54,9 @@ class UserInfo extends Component{
                     </Card.Body>
                 </Card>
                 <List>
-                    <List.Item>test</List.Item>
-                    <List.Item>test</List.Item>
-                    <List.Item>test</List.Item>
-                    <List.Item>test</List.Item>
+                    {
+                        this.props.action_list.size===0?<List.Item key={'uni'}>~~~什么也没有~~~</List.Item>:this.renderActionList(this.props.action_list)
+                     }
                 </List>
 
             </div>

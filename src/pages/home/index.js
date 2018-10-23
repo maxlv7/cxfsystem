@@ -13,7 +13,6 @@ import {Switch,Route,BrowserRouter} from "react-router-dom";
 class Home extends Component{
     constructor(props) {
         super(props);
-        console.log(this);
         this.handleOnPress = this.handleOnPress.bind(this);
         this.state={
             selectedTab:'index'

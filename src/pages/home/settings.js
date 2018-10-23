@@ -35,7 +35,10 @@ class Settings extends Component{
                         onClick={this.handleOnClick}
                     >安全退出</Button>
                     <WhiteSpace/>
-                    <Button type='primary'>关于</Button>
+                    <Button
+                        type='primary'
+                        onClick={this.showAbout}
+                    >关于</Button>
                 </WingBlank>
             </div>
         );
@@ -54,6 +57,10 @@ class Settings extends Component{
     }
     manageMember(){
        this.props.history.push('/manageUsers');
+    }
+
+    showAbout(){
+
     }
 }
 
