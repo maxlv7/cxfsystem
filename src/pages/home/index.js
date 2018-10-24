@@ -3,11 +3,12 @@ import {TabBar} from "antd-mobile";
 import DataShow from './components/DataShow'
 import Users from './components/Users'
 import UserInfo from './components/UserInfo'
+import ModifyUser from './components/ModifyUser'
 import Settings from './settings'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
 import './home.css'
-import {Switch,Route,BrowserRouter} from "react-router-dom";
+import {Switch,Route} from "react-router-dom";
 
 
 class Home extends Component{
@@ -66,6 +67,7 @@ class Home extends Component{
                         <Route path='/settings' component={Settings}/>
                         <Route exact path='/manageUsers' component={Users}/>
                         <Route path='/manage/user/:id' component={UserInfo}/>
+                        <Route exact path='/manage/addUser' component={ModifyUser}/>
                     </Switch>
                 </TabBar.Item>
 

@@ -39,7 +39,7 @@ class UserInfo extends Component{
                     icon={<Icon type='left'/>}
                     rightContent={[
                         <Icon key='0' type='search' style={{marginRight:14}}/>,
-                        <Icon key='1' type='ellipsis' onClick={this.getUid}/>
+                        <Icon key='1' type='ellipsis' onClick={null}/>
                     ]}
                     onLeftClick={this.handleOnLeftClick}
                     >成员管理</NavBar>
