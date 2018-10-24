@@ -10,9 +10,9 @@ const getStuList = (data)=>({
     data:data
 });
 
-const getUser = (uid,username,point)=>({
+const getUser = (uid,username,point,stuNum)=>({
     type:constants.GET_USER_INFO,
-    data: [uid,username,point]
+    data: [uid,username,point,stuNum]
 });
 
 const getAction = (data)=>({
@@ -26,7 +26,7 @@ export const getUserInfo = (id)=>{
         axios.get(baseURl+'/admin/getUserInfo?id='+id,setHeaders())
             .then((res)=>{
                 const user = res.data.data;
-                dispatch(getUser(user.id,user.username,user.point))
+                dispatch(getUser(user.id,user.username,user.point,user.stuNum))
             })
             .catch()
   }

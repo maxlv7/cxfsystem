@@ -27,7 +27,6 @@ class UserInfo extends Component{
     }
 
     renderActionList(list){
-        console.log(list);
       return list.map((item)=>{
                 return <List.Item key={item.get('mid')}>{item.get('action')}</List.Item>
             })

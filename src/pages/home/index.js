@@ -3,7 +3,8 @@ import {TabBar} from "antd-mobile";
 import DataShow from './components/DataShow'
 import Users from './components/Users'
 import UserInfo from './components/UserInfo'
-import ModifyUser from './components/ModifyUser'
+import AddUser from './components/AddUser'
+import ModifyUser from "./components/ModifyUser";
 import Settings from './settings'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
@@ -67,7 +68,8 @@ class Home extends Component{
                         <Route path='/settings' component={Settings}/>
                         <Route exact path='/manageUsers' component={Users}/>
                         <Route path='/manage/user/:id' component={UserInfo}/>
-                        <Route exact path='/manage/addUser' component={ModifyUser}/>
+                        <Route exact path='/manage/addUser' component={AddUser}/>
+                        <Route path='/manage/updateUser/:id' component={ModifyUser}/>
                     </Switch>
                 </TabBar.Item>
 

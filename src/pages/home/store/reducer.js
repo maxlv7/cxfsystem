@@ -6,6 +6,7 @@ const defaultState = fromJS({
     now_uid:null,
     now_user:null,
     now_score:null,
+    now_stuNum:null,
     action_list:[]
 });
 
@@ -18,7 +19,8 @@ export default (state=defaultState,action)=>{
         return state.merge({
             now_uid:action.data[0],
             now_user:action.data[1],
-            now_score:action.data[2]
+            now_score:action.data[2],
+            now_stuNum:action.data[3]
         })
     }
     if(action.type === constants.GET_USER_ACTION){

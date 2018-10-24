@@ -1,6 +1,8 @@
 import React,{Component} from "react";
 import {Icon,List,NavBar,Button,Modal,Toast} from "antd-mobile";
 import connect from "react-redux/es/connect/connect";
+import {findKey} from "../../../utils/tools";
+
 
 
 class Users extends Component{
@@ -10,6 +12,7 @@ class Users extends Component{
         this.handleReturnClick = this.handleReturnClick.bind(this);
         this.showDelUser = this.showDelUser.bind(this);
         this.handleAddUser = this.handleAddUser.bind(this);
+        this.handleUpdateUser = this.handleUpdateUser.bind(this);
     }
 
     render() {
@@ -26,7 +29,7 @@ class Users extends Component{
                     <List.Item>
                         <Button className='btn' inline={true} type={"primary"} onClick={this.handleAddUser} >添加成员</Button>
                         <Button className='btn btn-margin' inline={true} type={"primary"} onClick={this.showDelUser}>删除成员</Button>
-                        <Button className='btn' inline={true} type={"primary"}>修改成员</Button>
+                        <Button className='btn' inline={true} type={"primary"} onClick={this.handleUpdateUser}>修改成员</Button>
                     </List.Item>
 
                     {this.renderList(this.props.listData)}
@@ -89,6 +92,15 @@ class Users extends Component{
     //增加成员
     handleAddUser(){
         this.props.history.push('/manage/addUser')
+    }
+
+    handleUpdateUser(id){
+        //弹出输入框,询问要修改的成员的姓名
+        // Modal.prompt('输入', '请输入姓名',
+        //     (name) => this.setState({name:name}), 'default',);
+        //先暂时取store里面的id
+
+        this.props.history.push('/manage/updateUser/'+'2')
     }
 
 }
