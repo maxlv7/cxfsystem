@@ -2,7 +2,9 @@ import React,{Component} from "react";
 import {Icon,List,NavBar,Button,Modal,Toast} from "antd-mobile";
 import connect from "react-redux/es/connect/connect";
 import {findKey} from "../../../utils/tools";
-
+import axios from 'axios'
+import {baseURl,setHeaders} from "../../../utils/config";
+import {actionCreators} from "../store";
 
 
 class Users extends Component{
@@ -13,6 +15,7 @@ class Users extends Component{
         this.showDelUser = this.showDelUser.bind(this);
         this.handleAddUser = this.handleAddUser.bind(this);
         this.handleUpdateUser = this.handleUpdateUser.bind(this);
+        this.handleOnInput = this.handleOnInput.bind(this);
     }
 
     render() {
@@ -84,9 +87,34 @@ class Users extends Component{
         }
     }
 
-    handleDelUserOnOk(username){
+    handleDelUserOnOk(name){
         //在这里派发ajax成功后再次更新state
-        console.log(username)
+        let obj = this.props.listData.toJS();
+        let res = obj.filter((item)=>{
+           return findKey(item, name)
+        });
+        if(Array.isArray(res) && res[0]!==undefined){
+            //跳转到对应的界面
+            let uid = res[0].id;
+            axios.get(baseURl+'/admin/delUser?uid='+uid,setHeaders())
+                .then((res)=>{
+                   const r = res.data;
+                    if(r.status===200){
+                        Toast.success(r.msg);
+                        //重新获取数据
+                        this.props.dispatch(actionCreators.getListData())
+                    }
+                    else{
+                        Toast.fail(r.msg);
+                    }
+                })
+                .catch(()=>{
+                    Toast.offline('哦哦!网络出错了!');
+                })
+        }else{
+            Toast.info("请输入正确的名字!");
+        }
+
     }
 
     //增加成员
@@ -94,13 +122,37 @@ class Users extends Component{
         this.props.history.push('/manage/addUser')
     }
 
-    handleUpdateUser(id){
+    //更新成员
+    handleUpdateUser(){
         //弹出输入框,询问要修改的成员的姓名
-        // Modal.prompt('输入', '请输入姓名',
-        //     (name) => this.setState({name:name}), 'default',);
-        //先暂时取store里面的id
+        Modal.prompt('输入', '请输入姓名',
+            (name)=>this.handleOnInput(name), 'default');
+    }
 
-        this.props.history.push('/manage/updateUser/'+'2')
+    //得到修改提示框的内容
+    handleOnInput(name){
+        if(name==='')
+        {
+            Toast.info("请输入姓名!")
+        }
+        else{
+            let obj = this.props.listData.toJS();
+            let res = obj.filter((item)=>{
+               return findKey(item, name)
+            });
+            //好像上面这种方法能节省性能
+            // obj.map((item)=> {
+            //      if(findKey(item, name)){
+            //         res = item;
+            //      }
+            // });
+            if(Array.isArray(res) && res[0]!==undefined){
+                //跳转到对应的界面
+                this.props.history.push('/manage/updateUser/'+res[0].id)
+            }else{
+                Toast.info("请输入正确的名字!")
+            }
+        }
     }
 
 }

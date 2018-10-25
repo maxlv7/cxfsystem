@@ -94,6 +94,8 @@ class AddUser extends Component{
             this.setState({editable:false,loading:true});
             //在这里派发ajax成功后再次更新state
             const config = this.state;
+            delete config.loading;
+            delete config.editable;
             axios.get(baseURl+'/admin/addUser?'+qs.stringify(config),setHeaders())
                 .then((res)=>{
                     if(res.data.status===200){
