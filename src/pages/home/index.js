@@ -34,7 +34,7 @@ class Home extends Component{
     }
 
     renderIcon(type){
-        return (<div className={'iconfont fs-21px'+' icon-'+type}/>)
+        return (<div className={'iconfont fs-21px icon-'+type}/>)
     }
     render() {
         return (

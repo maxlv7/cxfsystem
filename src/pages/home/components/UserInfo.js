@@ -64,7 +64,7 @@ class UserInfo extends Component{
         delete config.visible;
         if(value!=='' && date!==''){
             //ajax操作
-            axios.get(baseURl+'/admin/addAction?'+qs.stringify(config))
+            axios.get(baseURl+'/admin/addAction?'+qs.stringify(config),setHeaders())
                 .then((res)=>{
                     const r =res.data;
                     if(r.status===200){

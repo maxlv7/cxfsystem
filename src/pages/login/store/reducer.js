@@ -1,9 +1,6 @@
 import {fromJS} from "immutable";
 import * as constants from './constants'
 
-function judgeLogin(){
-
-}
 
 const defaultState = fromJS({
     login:false,

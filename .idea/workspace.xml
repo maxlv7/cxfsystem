@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="283bb306-ce57-4c24-8afb-1d5e9f95f354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/components/AddUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/components/AddUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/components/ModifyUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/components/ModifyUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/home/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/components/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/components/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/components/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/tools.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/tools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/login/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login/store/reducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,7 +33,7 @@
         <counts>
           <entry key="css" value="4" />
           <entry key="html" value="1" />
-          <entry key="js" value="44" />
+          <entry key="js" value="47" />
           <entry key="json" value="4" />
           <entry key="md" value="1" />
           <entry key="ts" value="2" />
@@ -47,7 +44,7 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="1" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="44" />
+          <entry key="JavaScript" value="47" />
           <entry key="Markdown" value="1" />
           <entry key="TypeScript" value="2" />
         </counts>
@@ -56,18 +53,18 @@
         <counts>
           <entry key="css" value="163" />
           <entry key="html" value="14" />
-          <entry key="js" value="6925" />
+          <entry key="js" value="6937" />
           <entry key="md" value="25" />
-          <entry key="txt" value="38" />
+          <entry key="txt" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="163" />
           <entry key="HTML" value="14" />
-          <entry key="JavaScript" value="6925" />
+          <entry key="JavaScript" value="6937" />
           <entry key="Markdown" value="25" />
-          <entry key="PLAIN_TEXT" value="38" />
+          <entry key="PLAIN_TEXT" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -81,34 +78,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/home/components/UserInfo.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
+            <state relative-caret-position="190">
+              <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/tools.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/login/store/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="76">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/home/store/actionCreators.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/home/components/UserInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="37" column="51" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="51" />
+            <state relative-caret-position="323">
+              <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/pages/home/settings.js" />
         <option value="$PROJECT_DIR$/src/pages/home/store/constants.js" />
         <option value="$PROJECT_DIR$/test.js" />
-        <option value="$PROJECT_DIR$/src/pages/home/index.js" />
         <option value="$PROJECT_DIR$/src/pages/home/store/actionCreators.js" />
         <option value="$PROJECT_DIR$/src/pages/home/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/utils/config.js" />
@@ -154,6 +153,8 @@
         <option value="$PROJECT_DIR$/node_modules/antd-mobile/lib/list/style/index.css" />
         <option value="$PROJECT_DIR$/src/pages/home/home.css" />
         <option value="$PROJECT_DIR$/src/utils/tools.js" />
+        <option value="$PROJECT_DIR$/src/pages/home/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/login/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/pages/home/components/UserInfo.js" />
       </list>
     </option>
@@ -175,7 +176,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="430" />
+    <option name="x" value="456" />
     <option name="y" value="56" />
     <option name="width" value="1345" />
     <option name="height" value="844" />
@@ -226,6 +227,27 @@
               <item name="cxfsystem" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cxfsystem" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cxfsystem" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cxfsystem" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="home" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="cxfsystem" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -320,7 +342,7 @@
       <workItem from="1540220256120" duration="2057000" />
       <workItem from="1540259020829" duration="8006000" />
       <workItem from="1540366450766" duration="23098000" />
-      <workItem from="1540454863468" duration="14646000" />
+      <workItem from="1540454863468" duration="14909000" />
     </task>
     <task id="LOCAL-00001" summary="完成用户事件api">
       <created>1540263599482</created>
@@ -350,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540438562454</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="基本完成前端">
+      <created>1540481078112</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1540481078113</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -359,10 +388,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49195000" />
+    <option name="totallyTimeSpent" value="49458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="344" y="45" width="1076" height="675" extended-state="0" />
+    <frame x="365" y="45" width="1076" height="675" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22884615" />
@@ -397,7 +426,8 @@
     <MESSAGE value="增加添加成员" />
     <MESSAGE value="完成添加成员,增加工具函数" />
     <MESSAGE value="完成删除成员，一些小bug的修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成删除成员，一些小bug的修复" />
+    <MESSAGE value="基本完成前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本完成前端" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/App.test.js" />
@@ -484,16 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="62" column="60" lean-forward="true" selection-start-line="62" selection-start-column="60" selection-end-line="62" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -590,9 +610,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="27" column="46" lean-forward="true" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/login/store/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/home/components/UserInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
+        <state relative-caret-position="323">
           <caret line="74" column="37" lean-forward="true" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
