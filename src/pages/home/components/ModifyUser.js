@@ -7,12 +7,13 @@ import qs from "qs"
 import {actionCreators} from "../store";
 
 
-class ModifyUser extends Component{
+class AddUser extends Component{
     constructor(props) {
         super(props);
         this.handleOnLeftClick = this.handleOnLeftClick.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.getUid = this.getUid.bind(this);
         this.state = {
             name:null,
             stuNum:null,
@@ -21,10 +22,19 @@ class ModifyUser extends Component{
             loading:false
         }
     }
+
+    getUid(){
+        return this.props.match.params.id
+    }
+
     handleOnLeftClick(){
         this.props.history.push('/manageUsers')
     }
 
+    componentDidMount(){
+        //得到用户信息
+        this.props.dispatch(actionCreators.getUserInfo(this.getUid()));
+    }
     render() {
         return (
             <div>
@@ -35,12 +45,13 @@ class ModifyUser extends Component{
                         <Icon key='1' type='ellipsis' onClick={null}/>
                     ]}
                     onLeftClick={this.handleOnLeftClick}
-                    >添加成员</NavBar>
+                    >修改成员</NavBar>
                 <List>
                     <InputItem
                     type={"text"}
                     placeholder={'请输入姓名*'}
                     value={this.state.name}
+                    defaultValue={this.props.username}
                     onChange={(v)=>this.onChange(v,'name')}
                     editable={this.state.editable}
                     >姓名</InputItem>
@@ -48,18 +59,11 @@ class ModifyUser extends Component{
                         type={"money"}
                         placeholder={'请输入学号(可选)'}
                         value={this.state.stuNum}
+                        defaultValue={this.props.stuNum}
                         onChange={(v)=>this.onChange(v,'stuNum')}
                         moneyKeyboardAlign ={'left'}
                         editable={this.state.editable}
                     >学号</InputItem>
-                    <InputItem
-                        type={"money"}
-                        placeholder={'若为空,则为默认分数'}
-                        value={this.state.point}
-                        onChange={(v)=>this.onChange(v,'point')}
-                        moneyKeyboardAlign ={'left'}
-                        editable={this.state.editable}
-                    >初始分数</InputItem>
                 </List>
                 <WhiteSpace/>
                 <WhiteSpace/>
@@ -69,7 +73,7 @@ class ModifyUser extends Component{
                     type={"primary"}
                     onClick={this.handleOnClick}
                     loading={this.state.loading}
-                    >{this.state.loading?'提交中':'提交'}</Button>
+                    >{this.state.loading?'修改中':'修改'}</Button>
                 </WingBlank>
 
 
@@ -94,10 +98,10 @@ class ModifyUser extends Component{
             this.setState({editable:false,loading:true});
             //在这里派发ajax成功后再次更新state
             const config = this.state;
-            axios.get(baseURl+'/admin/addUser?'+qs.stringify(config),setHeaders())
+            axios.get(baseURl+'/admin/updateUser?'+qs.stringify(config),setHeaders())
                 .then((res)=>{
                     if(res.data.status===200){
-                        Toast.success("添加成功!");
+                        Toast.success(res.data.msg);
                         //恢复成初始状态
                         this.setState({name:null, stuNum:null, point:null,editable:true,loading:false});
                         //改变store的值,当返回时能直接看到结果
@@ -118,5 +122,12 @@ class ModifyUser extends Component{
     }
 }
 
+const mapState = (state)=>{
+    return{
+        uid:state.getIn(['Home','now_uid']),
+        username:state.getIn(['Home','now_user']),
+        stuNum:state.getIn(['Home','now_stuNum'])
+    }
+};
 
-export default connect()(ModifyUser)
+export default connect(mapState)(AddUser)

@@ -30,10 +30,6 @@ class AddUser extends Component{
             <div>
                 <NavBar
                     icon={<Icon type='left'/>}
-                    rightContent={[
-                        <Icon key='0' type='search' style={{marginRight:14}}/>,
-                        <Icon key='1' type='ellipsis' onClick={null}/>
-                    ]}
                     onLeftClick={this.handleOnLeftClick}
                     >添加成员</NavBar>
                 <List>
@@ -69,7 +65,7 @@ class AddUser extends Component{
                     type={"primary"}
                     onClick={this.handleOnClick}
                     loading={this.state.loading}
-                    >{this.state.loading?'提交中':'提交'}</Button>
+                    >{this.state.loading?'添加中':'添加'}</Button>
                 </WingBlank>
 
 

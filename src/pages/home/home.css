@@ -39,3 +39,17 @@
 .btn-margin{
     margin: 0 3px;
 }
+
+.center {
+    text-align: center;
+}
+.mr-10px{
+    margin-right: 10px;
+}
+.ml-10px {
+    margin-left: 10px;
+}
+
+.am-list-item .am-list-line .am-list-extra {
+    overflow: visible!important;
+}

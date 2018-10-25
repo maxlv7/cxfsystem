@@ -30,9 +30,11 @@ class Users extends Component{
                     renderFooter={()=>'我是有底线的~~~'}
                 >
                     <List.Item>
-                        <Button className='btn' inline={true} type={"primary"} onClick={this.handleAddUser} >添加成员</Button>
-                        <Button className='btn btn-margin' inline={true} type={"primary"} onClick={this.showDelUser}>删除成员</Button>
-                        <Button className='btn' inline={true} type={"primary"} onClick={this.handleUpdateUser}>修改成员</Button>
+                        <div className='center'>
+                            <Button className='btn' inline={true} type={"primary"} onClick={this.handleAddUser} >添加成员</Button>
+                            <Button className='btn btn-margin' inline={true} type={"primary"} onClick={this.showDelUser}>删除成员</Button>
+                            <Button className='btn' inline={true} type={"primary"} onClick={this.handleUpdateUser}>修改成员</Button>
+                        </div>
                     </List.Item>
 
                     {this.renderList(this.props.listData)}
