@@ -1,9 +1,0 @@
-{
-  "msg": "success",
-  "data": {
-    "uid":1,
-    "username":"Li",
-    "point":55
-  },
-  "status": 200
-}
