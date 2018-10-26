@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {Button,WhiteSpace,List,WingBlank,Modal,Toast,InputItem} from "antd-mobile";
 import {connect} from 'react-redux'
 import {actionCreators} from "./store";
+import {actionCreators as ac} from "../login/store";
 import axios from 'axios'
 import {baseURl,setHeaders} from "../../utils/config";
 import qs from 'qs'
@@ -89,7 +90,7 @@ class Settings extends Component{
     }
     handleOnOk(){
         //先改变store的状态，然后才转到Login
-        this.props.dispatch(actionCreators.changeLogin(false));
+        this.props.dispatch(ac.changeLogin(false));
         localStorage.clear();
         this.props.history.push('/login');
     }
