@@ -10,7 +10,6 @@ import {actionCreators} from './store'
 class Login extends Component {
     constructor(props) {
         super(props);
-        console.log(this);
         this.state = {
             username:'',
             password:'',

@@ -1,8 +1,10 @@
 import React,{Component} from 'react'
-import {Button,WhiteSpace,List,WingBlank,Modal} from "antd-mobile";
+import {Button,WhiteSpace,List,WingBlank,Modal,Toast,InputItem} from "antd-mobile";
 import {connect} from 'react-redux'
-import {actionCreators} from "../login/store";
-
+import {actionCreators} from "./store";
+import axios from 'axios'
+import {baseURl,setHeaders} from "../../utils/config";
+import qs from 'qs'
 
 class Settings extends Component{
     constructor(props) {
@@ -10,6 +12,12 @@ class Settings extends Component{
         this.handleOnClick = this.handleOnClick.bind(this);
         this.handleOnOk = this.handleOnOk.bind(this);
         this.manageMember = this.manageMember.bind(this);
+        this.handleInputValue = this.handleInputValue.bind(this);
+        this.showSetDefaultModal = this.showSetDefaultModal.bind(this);
+        this.state = {
+            visible:false,
+            value:null
+        }
     }
 
     render() {
@@ -21,6 +29,11 @@ class Settings extends Component{
                     thumb={<i className='iconfont icon-chengyuan fs-22px'/>}
                     onClick={this.manageMember}
                     >成员管理</List.Item>
+                    <List.Item
+                    arrow='horizontal'
+                    thumb={<i className='iconfont icon-fenshu fs-22px'/>}
+                    onClick={this.showSetDefaultModal}
+                    >设置默认分数</List.Item>
                 </List>
                 <WhiteSpace/>
                 <WhiteSpace/>
@@ -40,6 +53,31 @@ class Settings extends Component{
                         onClick={this.showAbout}
                     >关于</Button>
                 </WingBlank>
+
+                <Modal
+                    visible={this.state.visible}
+                    transparent={true}
+                    maskClosable={false}
+                    title={'设置默认分数'}
+                    animationType={'slide'}
+                    footer={
+                        [{ text: '取消', onPress: () => { this.setState({visible:false}) } },
+                        { text: '好的', onPress: () => this.handleInputValue() }]
+                        }
+                >
+                    <List>
+                    <List.Item
+                        extra={this.props.defaultValue}
+                    >当前默认分数为:</List.Item>
+                    <InputItem
+                    placeholder={'请输入'}
+                    type={"money"}
+                    moneyKeyboardAlign ={'left'}
+                    value={this.state.value}
+                    onChange={(v)=>{this.setState({value:v})}}
+                    />
+                    </List>
+                </Modal>
             </div>
         );
     }
@@ -60,8 +98,53 @@ class Settings extends Component{
     }
 
     showAbout(){
-
+      Modal.alert('关于',"本系统由Li开发,使用中有任何问题或者有任何建议请联系qq:75497438!");
     }
+
+    componentDidMount(){
+       //得到原来的分数
+        this.props.dispatch(actionCreators.getDefaultPoint())
+    }
+    //显示对话框
+    showSetDefaultModal(){
+        this.setState({visible:true})
+    }
+
+    //处理数据
+    handleInputValue(){
+        let v = this.state.value;
+        if(!parseInt(v)){
+            Toast.info("请输入纯数字!")
+        }
+        else {
+            //ajax请求,改变设置
+            const config = {
+                key:'defaultPoint',
+                value:v
+            };
+            axios.get(baseURl+'/admin/setConfig?'+qs.stringify(config),setHeaders())
+                .then((res)=>{
+                    if(res.data.status===200)
+                    {
+                        Toast.success(res.data.msg)
+                        this.props.dispatch(actionCreators.getDefaultPoint())
+                        this.setState({visible:false})
+                    }
+                    else{
+                        Toast.fail(res.data.msg)
+                    }
+                })
+                .catch(()=>{
+                    Toast.info("哦啤!网络出错了!")
+                })
+        }
+    }
+
 }
 
-export default connect(null)(Settings)
+const mapState = (state)=>{
+    return {
+        defaultValue:state.getIn(['Home','default_value'])
+    }
+};
+export default connect(mapState)(Settings)

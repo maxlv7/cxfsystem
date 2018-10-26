@@ -58,11 +58,11 @@ class UserInfo extends Component{
     //添加活动逻辑处理
     handleAddAction(){
         const {value,date} = this.state;
-        let config = this.state;
-        config.date = Date.parse(config.date);
-        config.uid = this.getUid();
-        delete config.visible;
         if(value!=='' && date!==''){
+            let config = this.state;
+            config.date = Date.parse(config.date);
+            config.uid = this.getUid();
+            delete config.visible;
             //ajax操作
             axios.get(baseURl+'/admin/addAction?'+qs.stringify(config),setHeaders())
                 .then((res)=>{
@@ -75,7 +75,12 @@ class UserInfo extends Component{
                             value:'',
                             date:'',
                             point:0
-                        })
+                        });
+                        //更新信息
+                        //加载用户信息，写入store
+                            this.props.dispatch(actionCreators.getUserInfo(this.getUid()));
+                        //加载action信息，写入store
+                            this.props.dispatch(actionCreators.getUserAction(this.getUid()));
                     }
                 })
                 .catch(()=>{

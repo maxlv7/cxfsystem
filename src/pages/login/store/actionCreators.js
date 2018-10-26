@@ -37,7 +37,6 @@ export const login = (user,password)=>{
      axios.post(baseURl+'/auth/login',(postJson))
             .then((res)=>{
                 const data = res.data;
-                console.log(data);
                 if(data.status === 200)
                 {
                     const {token,uid,username,group} =data.data;

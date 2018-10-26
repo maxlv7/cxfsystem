@@ -26,5 +26,9 @@ export default (state=defaultState,action)=>{
     if(action.type === constants.GET_USER_ACTION){
         return state.set('action_list',action.data)
     }
+
+    if(action.type === constants.GET_DEFAULT_POINT){
+        return state.set('default_value',action.data)
+    }
     return state
 }
