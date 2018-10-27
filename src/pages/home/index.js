@@ -80,7 +80,9 @@ class Home extends Component{
     }
 
     componentDidMount(){
-        this.props.getListData()
+        if(localStorage.getItem('access_token')){
+            this.props.getListData()
+        }
     }
 }
 

@@ -81,6 +81,8 @@ class UserInfo extends Component{
                             this.props.dispatch(actionCreators.getUserInfo(this.getUid()));
                         //加载action信息，写入store
                             this.props.dispatch(actionCreators.getUserAction(this.getUid()));
+                        //更新所有用户信息
+                            this.props.dispatch(actionCreators.getListData())
                     }
                 })
                 .catch(()=>{
