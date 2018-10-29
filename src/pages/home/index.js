@@ -5,6 +5,7 @@ import Users from './components/Users'
 import UserInfo from './components/UserInfo'
 import AddUser from './components/AddUser'
 import ModifyUser from "./components/ModifyUser";
+import ManageCommonAction from "./components/ManageCommonAction";
 import Settings from './settings'
 import {connect} from 'react-redux'
 import {actionCreators} from './store'
@@ -70,6 +71,7 @@ class Home extends Component{
                         <Route path='/manage/user/:id' component={UserInfo}/>
                         <Route exact path='/manage/addUser' component={AddUser}/>
                         <Route path='/manage/updateUser/:id' component={ModifyUser}/>
+                        <Route exact path='/manageCommonAction' component={ManageCommonAction}/>
                     </Switch>
                 </TabBar.Item>
 

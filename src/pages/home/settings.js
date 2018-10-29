@@ -15,6 +15,7 @@ class Settings extends Component{
         this.manageMember = this.manageMember.bind(this);
         this.handleInputValue = this.handleInputValue.bind(this);
         this.showSetDefaultModal = this.showSetDefaultModal.bind(this);
+        this.manageCommonAction = this.manageCommonAction.bind(this);
         this.state = {
             visible:false,
             value:null
@@ -35,14 +36,13 @@ class Settings extends Component{
                     thumb={<i className='iconfont icon-fenshu fs-22px'/>}
                     onClick={this.showSetDefaultModal}
                     >设置默认分数</List.Item>
+                    <List.Item
+                    arrow='horizontal'
+                    thumb={<i className='iconfont icon-huodong fw-n fs-22px'/>}
+                    onClick={this.manageCommonAction}
+                    >集体活动管理</List.Item>
                 </List>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <WhiteSpace/>
+                <WhiteSpace/><WhiteSpace/><WhiteSpace/><WhiteSpace/><WhiteSpace/><WhiteSpace/><WhiteSpace/>
                 <WingBlank size='lg'>
                     <Button
                         type='primary'
@@ -96,6 +96,10 @@ class Settings extends Component{
     }
     manageMember(){
        this.props.history.push('/manageUsers');
+    }
+
+    manageCommonAction(){
+        this.props.history.push('/manageCommonAction')
     }
 
     showAbout(){

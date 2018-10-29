@@ -15,3 +15,12 @@ export function getTime(stamp) {
     return year+'-'+month+'-'+day
 }
 
+//判断一个元素是否存在于这个数组
+export function isInArray(arr,value){
+    for(var i = 0; i < arr.length; i++){
+        if(value === arr[i]){
+            return true;
+        }
+    }
+    return false;
+}
