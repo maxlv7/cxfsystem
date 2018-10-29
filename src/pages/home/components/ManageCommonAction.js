@@ -42,9 +42,10 @@ class ManageCommonAction extends Component{
                     {
                         this.props.stuList.map((item)=>{
                             return <Checkbox.CheckboxItem
+                                extra={item.get('point')}
                                 key={item.get('id')}
                                 onChange={()=>this.handleOnChange(item.get('id'))}
-                            >{item.get('name')}---{item.get('id')}
+                            >{item.get('name')}
                             </Checkbox.CheckboxItem>
                         })
                     }
